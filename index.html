@@ -264,3 +264,147 @@ To build a Christ-centred church that transforms lives and prepares believers fo
 </div>
 
 </section>
+<!-- EVENTS -->
+
+<section id="events">
+
+<h2 class="title">Church Event Calendar</h2>
+
+<div class="line"></div>
+
+<div class="cards">
+
+<div class="card">
+<h3>Sunday Worship Service</h3>
+<p><strong>Every Sunday</strong></p>
+<p>🕘 09:00 AM</p>
+<p>Main Auditorium</p>
+</div>
+
+<div class="card">
+<h3>Bible Study</h3>
+<p><strong>Every Wednesday</strong></p>
+<p>🕕 06:00 PM</p>
+<p>Main Auditorium</p>
+</div>
+
+<div class="card">
+<h3>Prayer Meeting</h3>
+<p><strong>Every Friday</strong></p>
+<p>🕕 06:00 PM</p>
+<p>Prayer Hall</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- BRANCHES -->
+
+<section id="branches">
+
+<h2 class="title">Our Branches</h2>
+
+<div class="line"></div>
+
+<div class="cards">
+
+<div class="card">
+<h3>Headquarters</h3>
+<p><strong>Address:</strong> Your Main Church Address</p>
+<p><strong>Contact:</strong> Bishop Shivambu</p>
+<p><strong>Phone:</strong> +27 XX XXX XXXX</p>
+</div>
+
+<div class="card">
+<h3>Branch 2</h3>
+<p><strong>Address:</strong> Branch Address</p>
+<p><strong>Contact:</strong> Pastor Mhlongo</p>
+<p><strong>Phone:</strong> +27 XX XXX XXXX</p>
+</div>
+
+<div class="card">
+<h3>Branch 3</h3>
+<p><strong>Address:</strong> Branch Address</p>
+<p><strong>Contact:</strong> Pastor Mazuze</p>
+<p><strong>Phone:</strong> +27 XX XXX XXXX</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<h2 class="title">Contact Us</h2>
+
+<div class="line"></div>
+
+<div class="card">
+
+<h3>Apostolic Faith Assembly of Africa</h3>
+
+<p><strong>Address:</strong> Your Church Address</p>
+
+<p><strong>Phone:</strong> +27 XX XXX XXXX</p>
+
+<p><strong>Email:</strong> info@afaa.org</p>
+
+<p><strong>Facebook:</strong> Apostolic Faith Assembly of Africa</p>
+
+<br>
+
+<a href="https://wa.me/27XXXXXXXXX" class="button">
+
+WhatsApp Us
+
+</a>
+
+</div>
+
+</section>
+
+<footer style="background:#004aad;color:#fff;text-align:center;padding:30px;">
+
+<h3>Apostolic Faith Assembly of Africa</h3>
+
+<p>Building Lives • Restoring Hope • Preaching Christ</p>
+
+<p>&copy; 2026 Apostolic Faith Assembly of Africa. All Rights Reserved.</p>
+
+</footer>
+
+<script>
+
+// Highlight active navigation link
+const links = document.querySelectorAll("nav a");
+
+window.addEventListener("scroll", () => {
+
+let fromTop = window.scrollY + 120;
+
+links.forEach(link => {
+
+let section = document.querySelector(link.getAttribute("href"));
+
+if(section &&
+section.offsetTop <= fromTop &&
+section.offsetTop + section.offsetHeight > fromTop){
+
+links.forEach(l => l.style.color = "white");
+
+link.style.color = "#ffd700";
+
+}
+
+});
+
+});
+
+</script>
+
+</body>
+
+</html>
