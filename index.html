@@ -322,6 +322,25 @@ font-size:36px;
 }
 </style>
 
+
+<style>
+/* National leadership structure */
+.leadership-section { padding: 58px 20px 64px; background: linear-gradient(180deg, #f7faff 0%, #ffffff 100%); }
+.leadership-intro { text-align:center; max-width:760px; margin:0 auto 34px; color:#4c5b70; line-height:1.75; }
+.leadership-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:20px; max-width:1180px; margin:0 auto; }
+.leader-card { position:relative; overflow:hidden; text-align:center; padding:28px 18px 30px; background:#fff; border:1px solid #e1e8f2; border-top:4px solid #d5a629; border-radius:16px; box-shadow:0 10px 28px rgba(0,42,105,.08); transition:transform .2s ease, box-shadow .2s ease; }
+.leader-card:before { content:""; position:absolute; width:150px; height:150px; border-radius:50%; background:rgba(0,74,173,.045); top:-82px; right:-70px; }
+.leader-card:hover { transform:translateY(-5px); box-shadow:0 16px 34px rgba(0,42,105,.14); }
+.leader-icon { display:flex; align-items:center; justify-content:center; width:66px; height:66px; margin:0 auto 16px; border-radius:50%; background:#0649a0; color:#ffd76a; border:3px solid #f0d27d; font-size:27px; }
+.leader-number { margin:0 0 5px; color:#b38a20; font-size:12px; font-weight:800; letter-spacing:2px; }
+.leader-card h3 { margin:0; color:#063d82; font-size:20px; line-height:1.35; }
+.leader-rule { width:44px; height:3px; margin:17px auto; border-radius:3px; background:#d6aa36; }
+.leader-name-label { margin:0 0 6px; color:#65758a; font-size:11px; font-weight:700; letter-spacing:1.2px; text-transform:uppercase; }
+.leader-name { margin:0; color:#24364d; font-size:15px; font-weight:600; }
+@media(max-width:900px) { .leadership-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; } }
+@media(max-width:520px) { .leadership-section { padding:42px 15px 48px; } .leadership-grid { grid-template-columns:1fr; gap:14px; max-width:380px; } .leader-card { padding:23px 16px 25px; } .leader-icon { width:58px; height:58px; font-size:24px; } }
+@media(prefers-reduced-motion:reduce) { .leader-card { transition:none; } .leader-card:hover { transform:none; } }
+</style>
 </head>
 
 <body>
@@ -478,37 +497,53 @@ Our mission is to fulfil the calling of the church by sharing the Gospel, nurtur
 
 <!-- NATIONAL LEADERSHIP -->
 
-<section id="leadership">
+<section id="leadership" class="leadership-section">
 
 <h2 class="title">National Leadership Structure</h2>
 
 <div class="line"></div>
 
-<p style="text-align:center;max-width:800px;margin:0 auto 30px;">
+<p class="leadership-intro">
 Our national leadership structure supports the spiritual direction, administration, and unity of Apostolic Faith Assembly of Africa.
 </p>
 
-<div class="cards">
+<div class="leadership-grid">
 
-<div class="card">
-<h3>1. Archbishop</h3>
-<p><strong>Name:</strong> To be announced</p>
-</div>
+<article class="leader-card">
+<div class="leader-icon" aria-hidden="true">✦</div>
+<p class="leader-number">01</p>
+<h3>Archbishop</h3>
+<div class="leader-rule"></div>
+<p class="leader-name-label">National Leadership</p>
+<p class="leader-name">To be announced</p>
+</article>
 
-<div class="card">
-<h3>2. Bishop</h3>
-<p><strong>Name:</strong> To be announced</p>
-</div>
+<article class="leader-card">
+<div class="leader-icon" aria-hidden="true">✝</div>
+<p class="leader-number">02</p>
+<h3>Bishop</h3>
+<div class="leader-rule"></div>
+<p class="leader-name-label">National Leadership</p>
+<p class="leader-name">To be announced</p>
+</article>
 
-<div class="card">
-<h3>3. Chairperson</h3>
-<p><strong>Name:</strong> To be announced</p>
-</div>
+<article class="leader-card">
+<div class="leader-icon" aria-hidden="true">◇</div>
+<p class="leader-number">03</p>
+<h3>Chairperson</h3>
+<div class="leader-rule"></div>
+<p class="leader-name-label">National Leadership</p>
+<p class="leader-name">To be announced</p>
+</article>
 
-<div class="card">
-<h3>4. General Secretary</h3>
-<p><strong>Name:</strong> To be announced</p>
-</div>
+<article class="leader-card">
+<div class="leader-icon" aria-hidden="true">▤</div>
+<p class="leader-number">04</p>
+<h3>General Secretary</h3>
+<div class="leader-rule"></div>
+<p class="leader-name-label">National Leadership</p>
+<p class="leader-name">To be announced</p>
+</article>
 
 </div>
 
