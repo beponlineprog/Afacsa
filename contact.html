@@ -13,7 +13,13 @@ nav{display:flex;flex-wrap:wrap;gap:16px}nav a{color:white;text-decoration:none;
 .hero{min-height:220px;background:linear-gradient(rgba(0,74,173,.86),rgba(0,74,173,.86)),url("banner.svg");background-size:cover;background-position:center;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:white;padding:30px 16px}
 .hero h1{font-size:clamp(30px,5vw,46px);margin-bottom:8px}.hero p{font-size:18px}
 main{max-width:1000px;margin:auto;padding:48px 6%}.intro{text-align:center;margin-bottom:28px}.intro h2{color:#004aad;font-size:32px}.line{width:90px;height:4px;background:#ffd700;margin:10px auto 22px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:20px}
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:stretch;gap:20px}
+.cards>.card{height:100%;min-width:0;display:flex;flex-direction:column;align-items:flex-start}
+.cards>.card h3{min-height:1.5em}
+.cards>.card p{width:100%}
+.cards>.card .button{margin-top:auto}
+@media(max-width:900px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.cards{grid-template-columns:1fr}.cards>.card h3{min-height:0}}
 .card{position:relative;background:white;padding:25px 23px;border-radius:16px;box-shadow:0 8px 24px rgba(0,42,105,.08);border:1px solid #e1e9f5;border-top:4px solid #004aad;transition:transform .2s ease,box-shadow .2s ease}
 .card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(0,42,105,.13)}
 .card h3{color:#004aad;margin-bottom:12px;font-size:21px}.card p{margin:8px 0;overflow-wrap:anywhere;color:#43536a}
