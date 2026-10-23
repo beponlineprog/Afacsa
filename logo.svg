@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" role="img" aria-labelledby="title desc">
+<title id="title">Apostolic Faith Assembly of Africa</title><desc id="desc">Navy and gold heart emblem with the slogan With God Everything Is Possible.</desc>
+<defs><linearGradient id="navy" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#123d8b"/><stop offset="1" stop-color="#001747"/></linearGradient><linearGradient id="gold"><stop stop-color="#b78319"/><stop offset=".5" stop-color="#ffe38a"/><stop offset="1" stop-color="#c18a1b"/></linearGradient></defs>
+<rect width="900" height="900" fill="#fff"/>
+<path d="M450 390 C385 330 170 205 210 105 C250 5 390 45 450 125 C510 45 650 5 690 105 C730 205 515 330 450 390Z" fill="#071d57" stroke="#071d57" stroke-width="12" transform="translate(0 0) scale(1 1)"/>
+<path d="M450 370 C385 310 190 200 225 112 C258 32 390 62 450 140 C510 62 642 32 675 112 C710 200 515 310 450 370Z" fill="url(#navy)" stroke="url(#gold)" stroke-width="10"/>
+<g fill="#fff" text-anchor="middle" font-family="Georgia,serif" font-weight="bold" font-size="26"><text x="450" y="170">APOSTOLIC</text><text x="450" y="205">FAITH</text><text x="450" y="240">ASSEMBLY</text><text x="450" y="275">OF</text><text x="450" y="310">AFRICA</text></g>
+<g fill="#08265b" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold"><text x="450" y="490" font-size="78">APOSTOLIC</text><text x="450" y="575" font-size="78">FAITH ASSEMBLY</text></g>
+<path d="M95 625 H290 M610 625 H805" stroke="url(#gold)" stroke-width="5"/><text x="450" y="650" text-anchor="middle" fill="#08265b" font-family="Georgia,serif" font-size="43" letter-spacing="7">OF AFRICA</text>
+<text x="450" y="720" text-anchor="middle" fill="#08265b" font-family="Georgia,serif" font-size="30" font-style="italic">With God Everything Is Possible</text>
+</svg>
