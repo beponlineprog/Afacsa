@@ -18,6 +18,19 @@ main{max-width:1000px;margin:auto;padding:48px 6%}.intro{text-align:center;margi
 .card h3{color:#004aad;margin-bottom:10px}.card p{margin:8px 0;overflow-wrap:anywhere}
 .button{display:inline-block;background:#004aad;color:white;padding:11px 22px;border-radius:25px;text-decoration:none;font-weight:bold;margin-top:10px}.button:hover{background:#ffd700;color:#004aad}
 .note{background:#fff8d8;border-left:4px solid #ffd700;padding:14px;margin-top:22px;border-radius:6px}
+.contact-form{background:white;padding:26px;border-radius:14px;box-shadow:0 5px 18px rgba(0,0,0,.1);border-top:4px solid #ffd700;margin-top:38px}
+.contact-form h2{color:#004aad;text-align:center;margin-bottom:8px}
+.contact-form .form-intro{text-align:center;margin-bottom:22px}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.form-field{display:flex;flex-direction:column;gap:6px}
+.form-field.full{grid-column:1/-1}
+.form-field label{font-weight:bold;color:#234}
+.form-field input,.form-field select,.form-field textarea{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.form-field input:focus,.form-field select:focus,.form-field textarea:focus{outline:2px solid #004aad;border-color:#004aad}
+.form-field textarea{min-height:140px;resize:vertical}
+.contact-form button{border:0;cursor:pointer;font-size:16px}
+@media(max-width:600px){.form-grid{grid-template-columns:1fr}.form-field.full{grid-column:auto}}
+
 footer{background:#004aad;color:white;text-align:center;padding:25px 15px;margin-top:25px}
 @media(max-width:700px){header{flex-direction:column;text-align:center;padding:12px 4%}.logo h2{font-size:16px}nav{justify-content:center;gap:12px}nav a{font-size:14px}.hero{min-height:200px}main{padding:35px 5%}}
 </style>
@@ -36,9 +49,27 @@ footer{background:#004aad;color:white;text-align:center;padding:25px 15px;margin
 <div class="card"><h3>Email Us</h3><p><strong>Email:</strong> info@afaa.org</p><p>Our official email address will be confirmed.</p></div>
 <div class="card"><h3>Connect Online</h3><p><strong>Facebook:</strong> Apostolic Faith Assembly of Africa</p><p>Visit our Facebook page to follow church updates and announcements.</p></div>
 </div>
+
+<form class="contact-form" id="contactForm">
+<h2>Send Us a Message</h2>
+<p class="form-intro">Fill in the form below and tell us how we can assist you.</p>
+<div class="form-grid">
+<div class="form-field"><label for="fullName">Full Name *</label><input id="fullName" name="fullName" type="text" autocomplete="name" placeholder="Enter your full name" required></div>
+<div class="form-field"><label for="emailAddress">Email Address *</label><input id="emailAddress" name="emailAddress" type="email" autocomplete="email" placeholder="you@example.com" required></div>
+<div class="form-field"><label for="phoneNumber">Phone Number</label><input id="phoneNumber" name="phoneNumber" type="tel" autocomplete="tel" placeholder="e.g. 071 234 5678"></div>
+<div class="form-field"><label for="subject">Reason for Contact *</label><select id="subject" name="subject" required><option value="">Choose a subject</option><option>General Enquiry</option><option>Prayer Request</option><option>Church Services</option><option>Branch Information</option><option>Pastoral Support</option><option>Other</option></select></div>
+<div class="form-field full"><label for="message">Your Message *</label><textarea id="message" name="message" placeholder="Write your message here..." required></textarea></div>
+<div class="form-field full"><button class="button" type="submit">Prepare Message</button></div>
+</div>
+<p id="formNotice" role="status" style="margin-top:14px;font-size:14px"></p>
+</form>
+
 <div style="text-align:center;margin-top:25px"><a class="button" href="https://wa.me/27XXXXXXXXX">WhatsApp Us</a><p style="margin-top:10px;font-size:14px">The WhatsApp link will work once the church's official number is added.</p><a class="button" href="index.html">← Back to Home</a></div>
 <div class="note"><strong>Note:</strong> The address, phone number, email, and WhatsApp details above are placeholders. They should be replaced with the church's confirmed contact information before being shared publicly.</div>
 </main>
 <footer><h3>Apostolic Faith Assembly of Africa</h3><p>With God Everything Is Possible</p><p>© 2026 Apostolic Faith Assembly of Africa. All Rights Reserved.</p></footer>
+<script>
+document.getElementById("contactForm").addEventListener("submit",function(event){event.preventDefault();document.getElementById("formNotice").textContent="Your form layout is ready. To make Send Message deliver enquiries, we need the church’s confirmed receiving email address and must connect the form to it."});
+</script>
 </body>
 </html>
