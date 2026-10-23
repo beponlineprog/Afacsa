@@ -13,11 +13,18 @@ nav{display:flex;flex-wrap:wrap;gap:16px}nav a{color:white;text-decoration:none;
 .hero{min-height:230px;background:linear-gradient(rgba(0,74,173,.86),rgba(0,74,173,.86)),url("banner.svg");background-size:cover;background-position:center;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:white;padding:30px 16px}
 .hero h1{font-size:clamp(30px,5vw,46px);margin-bottom:8px}.hero p{font-size:18px}
 main{padding:55px 7%}.intro{text-align:center;max-width:760px;margin:0 auto 30px}.intro h2{color:#004aad;font-size:34px}.line{width:90px;height:4px;background:#ffd700;margin:10px auto 22px}
-.province{margin:35px 0}.province h2{color:#004aad;border-bottom:3px solid #ffd700;padding-bottom:8px;margin-bottom:18px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
-.card{background:white;padding:22px;border-radius:14px;box-shadow:0 5px 15px rgba(0,0,0,.1);border-top:4px solid #004aad}
-.card h3{color:#004aad;margin-bottom:10px}.card p{margin:5px 0}.label{font-weight:bold}
-.back{display:inline-block;margin-top:28px;background:#004aad;color:white;padding:11px 22px;border-radius:25px;text-decoration:none;font-weight:bold}.back:hover{background:#ffd700;color:#004aad}
+.province{margin:38px 0}.province h2{color:#004aad;border-bottom:3px solid #ffd700;padding:0 0 10px;margin-bottom:20px;display:flex;align-items:center;gap:10px}.province h2:before{content:"";width:7px;height:28px;border-radius:5px;background:#004aad;display:inline-block}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:20px}
+.card{position:relative;background:white;padding:24px 22px;border-radius:16px;box-shadow:0 7px 22px rgba(0,42,105,.08);border:1px solid #e2eaf5;border-top:4px solid #004aad;transition:transform .2s ease,box-shadow .2s ease}
+.card:after{content:"";position:absolute;top:0;right:0;width:65px;height:4px;background:#d5a629;border-radius:0 12px 0 0}
+.card:hover{transform:translateY(-4px);box-shadow:0 13px 28px rgba(0,42,105,.13)}
+.card h3{color:#004aad;margin-bottom:14px;font-size:21px}.card p{margin:9px 0;color:#40516a;overflow-wrap:anywhere}.label{font-weight:bold;color:#263b56}
+.card a{color:#004aad;font-weight:700;text-decoration:none}.card a:hover{text-decoration:underline}
+.call-link{display:inline-flex;align-items:center;gap:7px;margin-top:10px;padding:9px 14px;border-radius:22px;background:#eef5ff;color:#004aad!important;border:1px solid #d5e4fb}
+.branch-search{max-width:700px;margin:0 auto 18px}.branch-search label{display:block;font-weight:700;color:#183d70;margin-bottom:8px}.branch-search input{width:100%;padding:14px 16px;border:1px solid #cbd8e9;border-radius:12px;font-size:16px;background:#fff;outline:none}.branch-search input:focus{border-color:#004aad;box-shadow:0 0 0 3px rgba(0,74,173,.12)}
+.branch-count{text-align:center;color:#52647b;margin:0 auto 28px;font-size:14px}.no-results{display:none;text-align:center;background:#fff;padding:25px;border-radius:14px;border:1px dashed #9db4d4;color:#52647b}
+.back{display:inline-block;margin-top:28px;background:#004aad;color:white;padding:12px 24px;border-radius:25px;text-decoration:none;font-weight:bold;box-shadow:0 5px 14px rgba(0,74,173,.18)}.back:hover{background:#ffd700;color:#004aad}
+@media(prefers-reduced-motion:reduce){.card{transition:none}.card:hover{transform:none}}
 footer{background:#004aad;color:#fff;text-align:center;padding:25px 15px;margin-top:25px}
 @media(max-width:700px){header{flex-direction:column;text-align:center;padding:12px 4%}.logo h2{font-size:16px}nav{justify-content:center;gap:12px}nav a{font-size:14px}.hero{min-height:210px}main{padding:38px 5%}}
 </style>
@@ -29,30 +36,60 @@ footer{background:#004aad;color:#fff;text-align:center;padding:25px 15px;margin-
 </header>
 <div class="hero"><h1>Our Church Branches</h1><p>One church family, serving communities across South Africa</p></div>
 <main>
-<div class="intro"><h2>Find a Branch</h2><div class="line"></div><p>Explore our branches by province. Branch contact persons are listed below. Phone numbers will be added when confirmed.</p></div>
+<div class="intro"><h2>Find Your Church Family</h2><div class="line"></div><p>Search our branches by town, province, or contact person. We look forward to welcoming you into our church family.</p></div>
+<div class="branch-search"><label for="branchSearch">Search branches</label><input id="branchSearch" type="search" placeholder="Try Soweto, Gauteng, or a contact name…" autocomplete="off"></div>
+<p class="branch-count" id="branchCount" aria-live="polite">Showing 11 branches across 5 provinces</p>
+<p class="no-results" id="noResults">No branches match that search. Try another town, province, or contact name.</p>
 <section class="province"><h2>Gauteng</h2><div class="cards">
-<div class="card"><h3>Soweto (Dlamini)</h3><p><span class="label">Contact Person:</span> Happy Nkabinde</p><p><span class="label">Phone:</span> <a href="tel:+27711664963">071 166 4963</a></p></div>
+<div class="card"><h3>Soweto (Dlamini)</h3><p><span class="label">Contact Person:</span> Happy Nkabinde</p><p><span class="label">Phone:</span> <a href="tel:+27711664963">071 166 4963</a></p><a class="call-link" href="tel:+27711664963">☎ Call branch contact</a></div>
 <div class="card"><h3>Germiston</h3><p><span class="label">Contact Person:</span> To be announced</p><p><span class="label">Phone:</span> To be announced</p></div>
-<div class="card"><h3>Daveyton</h3><p><span class="label">Contact Person:</span> Alpha Rikhotso</p><p><span class="label">Phone:</span> <a href="tel:+27785026466">078 502 6466</a></p></div>
+<div class="card"><h3>Daveyton</h3><p><span class="label">Contact Person:</span> Alpha Rikhotso</p><p><span class="label">Phone:</span> <a href="tel:+27785026466">078 502 6466</a></p><a class="call-link" href="tel:+27785026466">☎ Call branch contact</a></div>
 <div class="card"><h3>Thembisa</h3><p><span class="label">Contact Person:</span> To be announced</p><p><span class="label">Phone:</span> To be announced</p></div>
-<div class="card"><h3>Pretoria</h3><p><span class="label">Contact Person:</span> Mandla Kubheka</p><p><span class="label">Phone:</span> <a href="tel:+27828672356">082 867 2356</a></p></div>
+<div class="card"><h3>Pretoria</h3><p><span class="label">Contact Person:</span> Mandla Kubheka</p><p><span class="label">Phone:</span> <a href="tel:+27828672356">082 867 2356</a></p><a class="call-link" href="tel:+27828672356">☎ Call branch contact</a></div>
 </div></section>
 <section class="province"><h2>KwaZulu-Natal</h2><div class="cards">
 <div class="card"><h3>Newcastle</h3><p><span class="label">Contact Person:</span> Themba Khumalo</p><p><span class="label">Phone:</span> To be announced</p></div>
 <div class="card"><h3>Mhlabuyalingana</h3><p><span class="label">Contact Person:</span> Slindile Ngubane</p><p><span class="label">Phone:</span> To be announced</p></div>
 </div></section>
 <section class="province"><h2>Free State</h2><div class="cards">
-<div class="card"><h3>QwaQwa</h3><p><span class="label">Contact Person:</span> Tebogo Mofokeng</p><p><span class="label">Phone:</span> <a href="tel:+27633745822">063 374 5822</a></p></div>
+<div class="card"><h3>QwaQwa</h3><p><span class="label">Contact Person:</span> Tebogo Mofokeng</p><p><span class="label">Phone:</span> <a href="tel:+27633745822">063 374 5822</a></p><a class="call-link" href="tel:+27633745822">☎ Call branch contact</a></div>
 </div></section>
 <section class="province"><h2>North West</h2><div class="cards">
 <div class="card"><h3>Rustenburg</h3><p><span class="label">Contact Person:</span> Maifala</p><p><span class="label">Phone:</span> To be announced</p></div>
 </div></section>
 <section class="province"><h2>Limpopo</h2><div class="cards">
-<div class="card"><h3>Julesburg</h3><p><span class="label">Contact Person:</span> Thomas Ralebipa</p><p><span class="label">Phone:</span> <a href="tel:+27731487409">073 148 7409</a></p></div>
+<div class="card"><h3>Julesburg</h3><p><span class="label">Contact Person:</span> Thomas Ralebipa</p><p><span class="label">Phone:</span> <a href="tel:+27731487409">073 148 7409</a></p><a class="call-link" href="tel:+27731487409">☎ Call branch contact</a></div>
 <div class="card"><h3>Polokwane</h3><p><span class="label">Contact Person:</span> To be announced</p><p><span class="label">Phone:</span> To be announced</p></div>
 </div></section>
 <div style="text-align:center"><a class="back" href="index.html">← Back to Home</a></div>
 </main>
 <footer><h3>Apostolic Faith Assembly of Africa</h3><p>With God Everything Is Possible</p><p>© 2026 Apostolic Faith Assembly of Africa. All Rights Reserved.</p></footer>
+
+<script>
+(function(){
+ const input=document.getElementById('branchSearch');
+ const cards=Array.from(document.querySelectorAll('.province'));
+ const count=document.getElementById('branchCount');
+ const empty=document.getElementById('noResults');
+ const allCards=Array.from(document.querySelectorAll('.card'));
+ function filterBranches(){
+  const q=input.value.trim().toLowerCase();
+  let shown=0;
+  cards.forEach(section=>{
+   let inSection=0;
+   section.querySelectorAll('.card').forEach(card=>{
+    const match=card.textContent.toLowerCase().includes(q);
+    card.style.display=match?'':'none';
+    if(match){shown++;inSection++;}
+   });
+   section.style.display=inSection?'':'none';
+  });
+  count.textContent='Showing '+shown+' of '+allCards.length+' branches across '+cards.filter(s=>s.querySelector('.card:not([style*="display: none"])')).length+' provinces';
+  empty.style.display=shown?'none':'block';
+ }
+ input.addEventListener('input',filterBranches);
+})();
+</script>
+
 </body>
 </html>
