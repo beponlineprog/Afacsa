@@ -104,6 +104,31 @@ text-shadow:2px 3px 5px rgba(0,0,0,.55);
 margin:16px auto;
 }
 
+.hero p:nth-of-type(2){
+display:table;
+position:relative;
+font-size:clamp(16px,3vw,22px);
+font-weight:700;
+letter-spacing:1px;
+margin:22px auto 26px;
+padding-bottom:12px;
+text-shadow:0 0 8px rgba(255,255,255,.45);
+}
+
+.hero p:nth-of-type(2)::after{
+content:"";
+position:absolute;
+left:50%;
+bottom:0;
+transform:translateX(-50%);
+width:100%;
+max-width:340px;
+height:3px;
+border-radius:10px;
+background:#ffd700;
+box-shadow:0 0 5px #ffd700,0 0 12px #ffd700,0 0 22px rgba(255,215,0,.9);
+}
+
 @media(max-width:480px){
 .hero{
 height:auto;
