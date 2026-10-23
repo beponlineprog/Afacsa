@@ -61,7 +61,9 @@ color:#ffd700;
 .hero{
 height:360px;
 min-height:320px;
-background:linear-gradient(rgba(0,74,173,.8),rgba(0,74,173,.8)),url("banner.svg");
+background:
+linear-gradient(110deg,rgba(2,24,72,.72),rgba(0,58,132,.40),rgba(2,24,72,.64)),
+url("banner.svg");
 background-size:cover;
 background-position:center;
 display:flex;
@@ -69,9 +71,21 @@ justify-content:center;
 align-items:center;
 text-align:center;
 color:white;
-padding:20px;
+padding:48px 20px;
+min-height:430px;
+position:relative;
+isolation:isolate;
 }
 
+.hero > div{
+width:min(100%,920px);
+padding:clamp(22px,4vw,42px);
+border:1px solid rgba(255,215,0,.55);
+border-radius:24px;
+background:rgba(3,25,70,.30);
+box-shadow:0 16px 45px rgba(0,0,0,.20);
+backdrop-filter:blur(2px);
+}
 .hero img{
 width:170px;
 margin-bottom:20px;
@@ -115,6 +129,9 @@ padding-bottom:12px;
 text-shadow:0 0 8px rgba(255,255,255,.45);
 }
 
+.hero p:nth-of-type(2){
+color:#fff;
+}
 .hero p:nth-of-type(2)::after{
 content:"";
 position:absolute;
@@ -155,6 +172,83 @@ font-weight:bold;
 
 .button:hover{
 background:#ffd700;
+}
+.hero-actions{
+display:flex;
+justify-content:center;
+align-items:center;
+flex-wrap:wrap;
+gap:14px;
+margin-top:28px;
+}
+.hero .button{
+min-width:165px;
+padding:14px 24px;
+box-shadow:0 5px 16px rgba(0,0,0,.18);
+transition:transform .2s,background .2s;
+}
+.hero .button:hover{
+transform:translateY(-2px);
+}
+.hero .button-primary{
+background:#ffd700;
+color:#062e72;
+}
+.hero .button-outline{
+background:rgba(255,255,255,.08);
+color:#fff;
+border:2px solid #fff;
+}
+.hero .button-outline:hover{
+background:#fff;
+color:#004aad;
+}
+.welcome-strip{
+padding:34px 8%;
+background:#fff;
+border-bottom:1px solid #e3ebf8;
+}
+.welcome-strip-inner{
+max-width:1150px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(3,minmax(0,1fr));
+gap:24px;
+}
+.welcome-item{
+display:flex;
+align-items:flex-start;
+gap:14px;
+padding:10px;
+}
+.welcome-icon{
+flex:0 0 46px;
+height:46px;
+display:grid;
+place-items:center;
+border-radius:14px;
+background:#eaf2ff;
+color:#004aad;
+font-size:24px;
+}
+.welcome-item h3{
+color:#004aad;
+font-size:18px;
+margin:2px 0 7px;
+}
+.welcome-item p{
+color:#526078;
+font-size:14px;
+line-height:1.6;
+}
+@media(max-width:700px){
+.hero{min-height:360px;padding:26px 14px;background-position:center;}
+.hero > div{padding:24px 16px;border-radius:18px;}
+.hero-actions{gap:10px;}
+.hero .button{min-width:145px;padding:12px 18px;}
+.welcome-strip{padding:22px 6%;}
+.welcome-strip-inner{grid-template-columns:1fr;gap:12px;}
+.welcome-item{padding:8px 2px;}
 }
 
 section{
@@ -258,10 +352,31 @@ font-size:36px;
 
 <p>With God Everything Is Possible</p>
 
-<a href="#about" class="button">Learn More</a>
+<div class="hero-actions">
+<a href="#about" class="button button-primary">Discover Our Church</a>
+<a href="branches.html" class="button">Find a Branch</a>
+<a href="contact.html" class="button button-outline">Contact Us</a>
+</div>
 
 </div>
 
+</section>
+
+<section class="welcome-strip" aria-label="Our church commitments">
+<div class="welcome-strip-inner">
+<div class="welcome-item">
+<div class="welcome-icon" aria-hidden="true">✝</div>
+<div><h3>Christ at the Centre</h3><p>Sharing the Gospel of Jesus Christ and building our lives on the Word of God.</p></div>
+</div>
+<div class="welcome-item">
+<div class="welcome-icon" aria-hidden="true">♡</div>
+<div><h3>A Family of Faith</h3><p>A welcoming spiritual family committed to prayer, fellowship, and growing together.</p></div>
+</div>
+<div class="welcome-item">
+<div class="welcome-icon" aria-hidden="true">◎</div>
+<div><h3>Serving Our Communities</h3><p>Taking the love and hope of Christ beyond the church and into our communities.</p></div>
+</div>
+</div>
 </section>
 
 <section id="about">
