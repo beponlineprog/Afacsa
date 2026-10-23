@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1774" height="887" viewBox="0 0 1774 887">
+<defs>
+ <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#06317e"/><stop offset=".42" stop-color="#eaf6ff"/><stop offset=".72" stop-color="#69b7f2"/><stop offset="1" stop-color="#0750a9"/></linearGradient>
+ <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#ffe88a"/><stop offset=".5" stop-color="#dba800"/><stop offset="1" stop-color="#fff1a8"/></linearGradient>
+ <linearGradient id="footer" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#0758bb"/><stop offset="1" stop-color="#031e63"/></linearGradient>
+ <radialGradient id="glow"><stop stop-color="#fff" stop-opacity=".98"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+ <filter id="shadow"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#00265d" flood-opacity=".28"/></filter>
+</defs>
+<rect width="1774" height="887" fill="url(#sky)"/>
+<circle cx="920" cy="270" r="480" fill="url(#glow)"/>
+<path d="M0 260 Q120 210 240 260 T480 240 T720 270 T960 245 T1200 270 T1450 235 T1774 260 V570 H0Z" fill="#fff" opacity=".2"/>
+<path d="M0 430 Q190 360 350 430 T690 410 T1030 440 T1370 400 T1774 430 V620 H0Z" fill="#fff" opacity=".25"/>
+<g opacity=".22" fill="#fff"><path d="M0 280q55-45 110 0q48-40 100 4q45-25 80 15H0Z"/><path d="M1290 250q70-55 140 0q60-50 120 4q55-35 100 18h-360Z"/><path d="M980 520q55-38 110 0q50-32 90 6h-200Z"/></g>
+<g transform="translate(470 145)" filter="url(#shadow)">
+ <path d="M75 0h30v43h43v28h-43v43H75V71H32V43h43Z" fill="#0647a5"/>
+ <path d="M88 125 C45 80 70 53 96 27 C91 68 135 70 116 112 C105 137 95 146 88 125Z" fill="url(#gold)"/>
+ <path d="M90 155 L30 135 L-20 210 L35 196 L90 235 L145 196 L200 210 L150 135Z" fill="#fff" stroke="#e7b900" stroke-width="7"/>
+ <path d="M-10 217 Q45 202 90 240 Q135 202 190 217" fill="none" stroke="#0755b5" stroke-width="10"/>
+ <path d="M10 175 L65 160 L90 210 L115 160 L170 175" fill="none" stroke="#0755b5" stroke-width="8"/>
+</g>
+<g font-family="Georgia, 'Times New Roman', serif" fill="#06469c" text-anchor="start" filter="url(#shadow)">
+ <text x="700" y="245" font-size="56" font-weight="bold">APOSTOLIC FAITH</text>
+ <text x="700" y="310" font-size="56" font-weight="bold">ASSEMBLY OF AFRICA</text>
+</g>
+<text x="720" y="360" font-family="Arial, sans-serif" font-size="20" font-weight="bold" letter-spacing="5" fill="#0752ad">ONE FAITH  •  ONE FAMILY  •  ONE MISSION</text>
+<path d="M495 455 H605 M1165 455 H1275" stroke="url(#gold)" stroke-width="5"/>
+<text x="885" y="463" text-anchor="middle" font-family="Georgia, serif" font-size="42" font-style="italic" fill="#0752ad">Preaching the Apostolic Faith</text>
+<text x="885" y="510" text-anchor="middle" font-family="Georgia, serif" font-size="42" font-style="italic" fill="#0752ad">Across Africa</text>
+<g transform="translate(1220 110)" opacity=".14" fill="#0750a9"><path d="M135 0 L215 35 245 95 218 145 230 210 195 260 177 335 130 410 92 365 78 300 38 245 50 185 15 140 50 80 95 55Z"/><path d="M250 290 L282 310 268 360 240 390 226 350Z"/></g>
+<g transform="translate(0 535)">
+ <path d="M0 180 Q240 150 440 200 T900 195 T1350 165 T1774 80 V352 H0Z" fill="url(#footer)"/>
+ <path d="M0 180 Q250 135 460 190 T960 185 T1400 150 T1774 70" fill="none" stroke="url(#gold)" stroke-width="12"/>
+ <path d="M0 240 Q300 170 520 240 T1050 230 T1500 195 T1774 130" fill="none" stroke="#0089ff" stroke-width="8" opacity=".8"/>
+ <path d="M0 270 Q300 210 560 275 T1120 265 T1600 220 T1774 190" fill="none" stroke="#001b61" stroke-width="24"/>
+</g>
+<g transform="translate(-5 480) rotate(-8 230 120)" filter="url(#shadow)">
+ <rect x="0" y="35" width="470" height="175" rx="18" fill="#11151d" stroke="#c49a2c" stroke-width="5"/>
+ <path d="M25 55 H430 M25 190 H430" stroke="#c49a2c" stroke-width="3" opacity=".9"/>
+ <text x="225" y="112" text-anchor="middle" font-family="Georgia, serif" font-size="30" font-weight="bold" fill="#f6d76c">HOLY BIBLE</text>
+ <text x="225" y="150" text-anchor="middle" font-family="Georgia, serif" font-size="15" letter-spacing="4" fill="#f6d76c">THE WORD OF GOD</text>
+</g>
+</svg>
