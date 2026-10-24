@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#004aad">
+<title>AFAA Membership Register | Apostolic Faith Assembly of Africa</title>
+<style>
+:root{--blue:#004aad;--deep:#062e72;--gold:#ffd700;--ink:#24364d;--muted:#65758a;--bg:#f4f7fc;--line:#e1e8f2;--white:#fff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.5}
+header{background:var(--blue);color:#fff;padding:14px clamp(16px,5vw,64px);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;box-shadow:0 3px 12px #001f5030}
+.brand{display:flex;align-items:center;gap:12px;min-width:0}
+.brand img{width:52px;height:52px;object-fit:contain}
+.brand-name{font-weight:800;font-size:clamp(15px,2vw,20px);line-height:1.25}
+.brand-slogan{font-size:12px;color:#ffe77b;margin-top:4px}
+nav{display:flex;gap:16px;flex-wrap:wrap}
+nav a{color:white;text-decoration:none;font-weight:700;font-size:14px}
+nav a:hover,nav a:focus{color:var(--gold);text-decoration:underline}
+.hero{background:linear-gradient(120deg,#052e72,#0759b9);color:#fff;padding:42px 20px;text-align:center;border-bottom:5px solid var(--gold)}
+.hero .eyebrow{color:var(--gold);font-weight:800;letter-spacing:2px;text-transform:uppercase;font-size:12px}
+.hero h1{font-size:clamp(27px,4vw,42px);margin:8px 0}
+.hero p{max-width:720px;margin:0 auto;color:#eaf2ff}
+.wrap{width:min(1180px,calc(100% - 32px));margin:28px auto 54px}
+.demo-note{border:1px solid #e8ce6c;background:#fff9dd;border-radius:12px;padding:13px 16px;color:#614d05;font-size:14px;margin-bottom:20px}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:22px}
+.stat{background:white;border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:15px;padding:20px;box-shadow:0 5px 16px #092b590a}
+.stat .label{font-size:13px;color:var(--muted);font-weight:700}
+.stat .number{font-size:32px;font-weight:800;color:var(--blue);margin-top:5px}
+.panel{background:white;border:1px solid var(--line);border-radius:16px;box-shadow:0 7px 24px #092b590b;overflow:hidden;margin-bottom:22px}
+.panel-head{padding:20px 22px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.panel-head h2{font-size:20px;color:var(--deep);margin:0}
+.panel-head p{font-size:13px;color:var(--muted);margin:4px 0 0}
+.panel-body{padding:22px}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field.full{grid-column:1/-1}
+label{font-size:13px;font-weight:700;color:#31465f}
+input,select{width:100%;min-height:44px;padding:11px 12px;border:1px solid #cbd6e5;border-radius:9px;background:white;color:var(--ink);font:inherit}
+input:focus,select:focus{outline:3px solid #004aad25;border-color:var(--blue)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+button,.btn{border:0;border-radius:9px;padding:11px 16px;background:var(--blue);color:white;font-weight:800;font-size:14px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+button:hover,.btn:hover{background:var(--deep)}
+.btn-secondary,button.secondary{background:#eef3fb;color:var(--deep);border:1px solid #d5dfed}
+.btn-secondary:hover,button.secondary:hover{background:#e0eafa}
+.tools{display:flex;gap:10px;flex-wrap:wrap;width:100%}
+.tools input{flex:1;min-width:190px}
+.tools select{width:auto;min-width:190px}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:760px}
+th,td{text-align:left;padding:13px 16px;border-bottom:1px solid #edf1f7;font-size:14px;vertical-align:top}
+th{background:#f7f9fd;color:#53657b;font-size:12px;text-transform:uppercase;letter-spacing:.5px}
+tbody tr:hover{background:#f9fbff}
+.pill{display:inline-block;padding:4px 9px;border-radius:30px;background:#eaf2ff;color:#0649a0;font-size:12px;font-weight:800}
+.empty{padding:28px;text-align:center;color:var(--muted);display:none}
+footer{background:#062e72;color:#dce8ff;text-align:center;padding:22px 16px;font-size:13px}
+footer a{color:var(--gold)}
+.small{font-size:12px;color:var(--muted);margin-top:12px}
+@media(max-width:720px){header{align-items:flex-start;flex-direction:column}nav{gap:12px}.stats{grid-template-columns:1fr}.stat{padding:16px}.stat .number{font-size:28px}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.panel-body{padding:16px}.panel-head{padding:17px}.tools{flex-direction:column}.tools select{width:100%}}
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="index.html" style="color:inherit;text-decoration:none">
+    <img src="logo.svg" alt="AFAA logo" onerror="this.style.display='none'">
+    <div><div class="brand-name">Apostolic Faith Assembly of Africa</div><div class="brand-slogan">With God Everything Is Possible</div></div>
+  </a>
+  <nav aria-label="Main navigation">
+    <a href="index.html">Home</a><a href="branches.html">Branches</a><a href="contact.html">Contact Us</a>
+  </nav>
+</header>
+<section class="hero">
+  <div class="eyebrow">Church Administration</div>
+  <h1>Membership Register</h1>
+  <p>A simple demonstration of member registration and branch-by-branch membership counts.</p>
+</section>
+<main class="wrap">
+  <div class="demo-note"><strong>Demonstration mode:</strong> The names below are fictional sample records. Entries added on this page stay in this page's current session only; they are not sent to a database or shared with the church. Do not enter real members' personal information yet.</div>
+  <section class="stats" aria-label="Membership totals">
+    <div class="stat"><div class="label">Sample registered members</div><div class="number" id="totalCount">12</div></div>
+    <div class="stat"><div class="label">Branches represented</div><div class="number" id="branchCount">11</div></div>
+    <div class="stat"><div class="label">Branch with most sample entries</div><div class="number" id="topBranch" style="font-size:21px">Soweto (Dlamini)</div></div>
+  </section>
+  <section class="panel" id="register">
+    <div class="panel-head"><div><h2>Register a sample member</h2><p>Use fictional details to test how the form works.</p></div></div>
+    <div class="panel-body">
+      <form id="memberForm">
+        <div class="form-grid">
+          <div class="field"><label for="fullName">Full name and surname *</label><input id="fullName" name="fullName" autocomplete="off" required maxlength="100" placeholder="e.g. Sample Member"></div>
+          <div class="field"><label for="phone">Phone number *</label><input id="phone" name="phone" autocomplete="off" required inputmode="tel" maxlength="30" placeholder="e.g. 071 000 0000"></div>
+          <div class="field"><label for="email">Email address (optional)</label><input id="email" name="email" autocomplete="off" type="email" maxlength="120" placeholder="name@example.com"></div>
+          <div class="field"><label for="province">Province *</label><select id="province" name="province" required><option value="">Select province</option><option>Gauteng</option><option>KwaZulu-Natal</option><option>Free State</option><option>North West</option><option>Limpopo</option></select></div>
+          <div class="field full"><label for="branch">Church branch *</label><select id="branch" name="branch" required><option value="">Select branch</option></select></div>
+        </div>
+        <div class="actions"><button type="submit">Add sample record</button><button class="secondary" type="reset">Clear form</button></div>
+        <p class="small">No membership number is generated. Branch totals update automatically when you add a sample record.</p>
+        <p id="formMessage" role="status" aria-live="polite" class="small"></p>
+      </form>
+    </div>
+  </section>
+  <section class="panel" id="members">
+    <div class="panel-head"><div><h2>Members list</h2><p>Search sample records or filter by branch.</p></div>
+      <div class="tools"><input id="searchInput" type="search" placeholder="Search name, phone or email" aria-label="Search members"><select id="branchFilter" aria-label="Filter by branch"><option value="">All branches</option></select></div>
+    </div>
+    <div class="table-wrap"><table><thead><tr><th>Full name</th><th>Phone</th><th>Email</th><th>Province</th><th>Branch</th><th>Date registered</th></tr></thead><tbody id="memberRows"></tbody></table><div class="empty" id="emptyState">No sample records match your search.</div></div>
+  </section>
+  <section class="panel" id="branchSummary">
+    <div class="panel-head"><div><h2>Members by branch</h2><p>Counts are calculated from the records currently displayed in the demonstration register.</p></div></div>
+    <div class="table-wrap"><table style="min-width:400px"><thead><tr><th>Province</th><th>Branch</th><th>Members</th></tr></thead><tbody id="branchRows"></tbody></table></div>
+  </section>
+</main>
+<footer>© <span id="year"></span> Apostolic Faith Assembly of Africa · Building Lives • Restoring Hope • Preaching Christ<br><a href="index.html">Return to the church website</a></footer>
+<script>
+const branches = [
+  {name:"Soweto (Dlamini)",province:"Gauteng"},
+  {name:"Germiston",province:"Gauteng"},
+  {name:"Daveyton",province:"Gauteng"},
+  {name:"Thembisa",province:"Gauteng"},
+  {name:"Pretoria",province:"Gauteng"},
+  {name:"Newcastle",province:"KwaZulu-Natal"},
+  {name:"Mhlabuyalingana",province:"KwaZulu-Natal"},
+  {name:"QwaQwa",province:"Free State"},
+  {name:"Rustenburg",province:"North West"},
+  {name:"Julesburg",province:"Limpopo"},
+  {name:"Polokwane",province:"Limpopo"}
+];
+// Fictional demonstration records only. Replace with real data only after a secure database is connected.
+let members = [
+ {name:"Sample Member 01",phone:"071 000 0001",email:"",province:"Gauteng",branch:"Soweto (Dlamini)",date:"2026-10-01"},
+ {name:"Sample Member 02",phone:"071 000 0002",email:"sample02@example.com",province:"Gauteng",branch:"Soweto (Dlamini)",date:"2026-10-02"},
+ {name:"Sample Member 03",phone:"071 000 0003",email:"",province:"Gauteng",branch:"Daveyton",date:"2026-10-03"},
+ {name:"Sample Member 04",phone:"071 000 0004",email:"sample04@example.com",province:"Gauteng",branch:"Pretoria",date:"2026-10-04"},
+ {name:"Sample Member 05",phone:"071 000 0005",email:"",province:"KwaZulu-Natal",branch:"Newcastle",date:"2026-10-05"},
+ {name:"Sample Member 06",phone:"071 000 0006",email:"",province:"Free State",branch:"QwaQwa",date:"2026-10-06"},
+ {name:"Sample Member 07",phone:"071 000 0007",email:"sample07@example.com",province:"North West",branch:"Rustenburg",date:"2026-10-07"},
+ {name:"Sample Member 08",phone:"071 000 0008",email:"",province:"Limpopo",branch:"Polokwane",date:"2026-10-08"},
+ {name:"Sample Member 09",phone:"071 000 0009",email:"",province:"Gauteng",branch:"Germiston",date:"2026-10-09"},
+ {name:"Sample Member 10",phone:"071 000 0010",email:"sample10@example.com",province:"Gauteng",branch:"Thembisa",date:"2026-10-10"},
+ {name:"Sample Member 11",phone:"071 000 0011",email:"",province:"KwaZulu-Natal",branch:"Mhlabuyalingana",date:"2026-10-11"},
+ {name:"Sample Member 12",phone:"071 000 0012",email:"",province:"Limpopo",branch:"Julesburg",date:"2026-10-12"}
+];
+const $ = id => document.getElementById(id);
+const branchSelect = $("branch");
+const branchFilter = $("branchFilter");
+branches.forEach(b=>{
+ const option=document.createElement("option");option.value=b.name;option.textContent=b.name+" — "+b.province;branchSelect.appendChild(option);
+ const filterOption=document.createElement("option");filterOption.value=b.name;filterOption.textContent=b.name;branchFilter.appendChild(filterOption);
+});
+$("year").textContent=new Date().getFullYear();
+$("province").addEventListener("change",()=>{
+ const province=$("province").value;
+ [...branchSelect.options].forEach(o=>{if(o.value)o.hidden=!!province&&!branches.some(b=>b.name===o.value&&b.province===province)});
+ if(branchSelect.value&&!branches.some(b=>b.name===branchSelect.value&&b.province===province))branchSelect.value="";
+});
+branchSelect.addEventListener("change",()=>{
+ const b=branches.find(x=>x.name===branchSelect.value);if(b)$("province").value=b.province;
+});
+function safeCell(value){const td=document.createElement("td");td.textContent=value||"—";return td}
+function render(){
+ const query=$("searchInput").value.trim().toLowerCase(), filter=branchFilter.value;
+ const visible=members.filter(m=>(!filter||m.branch===filter)&&[m.name,m.phone,m.email,m.province,m.branch].join(" ").toLowerCase().includes(query));
+ const rows=$("memberRows");rows.replaceChildren();
+ visible.forEach(m=>{
+  const tr=document.createElement("tr");
+  [m.name,m.phone,m.email,m.province,m.branch,m.date].forEach(v=>tr.appendChild(safeCell(v)));
+  rows.appendChild(tr);
+ });
+ $("emptyState").style.display=visible.length?"none":"block";
+ const counts=branches.map(b=>({...b,count:members.filter(m=>m.branch===b.name).length}));
+ $("totalCount").textContent=members.length;
+ $("branchCount").textContent=counts.filter(b=>b.count>0).length;
+ const top=[...counts].sort((a,b)=>b.count-a.count)[0];
+ $("topBranch").textContent=top&&top.count?top.name:"—";
+ const branchRows=$("branchRows");branchRows.replaceChildren();
+ counts.forEach(b=>{
+  const tr=document.createElement("tr");
+  const p=safeCell(b.province), n=safeCell(b.name), c=document.createElement("td");
+  const pill=document.createElement("span");pill.className="pill";pill.textContent=b.count;c.appendChild(pill);
+  tr.append(p,n,c);branchRows.appendChild(tr);
+ });
+}
+$("memberForm").addEventListener("submit",e=>{
+ e.preventDefault();
+ const name=$("fullName").value.trim(),phone=$("phone").value.trim(),email=$("email").value.trim(),province=$("province").value,branch=$("branch").value;
+ if(!name||!phone||!province||!branch){$("formMessage").textContent="Please complete all required fields.";return}
+ if(!branches.some(b=>b.name===branch&&b.province===province)){$("formMessage").textContent="Please select a branch that matches the province.";return}
+ members.unshift({name,phone,email,province,branch,date:new Date().toISOString().slice(0,10)});
+ $("memberForm").reset();[...branchSelect.options].forEach(o=>o.hidden=false);
+ $("formMessage").textContent="Sample record added to this page session only. It has not been saved to a database.";
+ render();
+});
+$("searchInput").addEventListener("input",render);
+branchFilter.addEventListener("change",render);
+render();
+</script>
+</body>
+</html>
