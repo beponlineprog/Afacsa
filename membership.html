@@ -119,6 +119,10 @@ footer a{color:var(--gold)}
     <div class="panel-head"><div><h2>Members by branch</h2><p>Counts are calculated from the records currently displayed in the demonstration register.</p></div></div>
     <div class="table-wrap"><table style="min-width:400px"><thead><tr><th>Province</th><th>Branch</th><th>Members</th></tr></thead><tbody id="branchRows"></tbody></table></div>
   </section>
+  <section class="panel admin-only" id="provinceSummary" hidden>
+    <div class="panel-head"><div><h2>Members by province</h2><p>Compare sample registrations across provinces. Provinces with no registrations are included.</p></div></div>
+    <div class="table-wrap"><table style="min-width:520px"><thead><tr><th>Province</th><th>Members</th><th>Branches represented</th><th>Share of members</th></tr></thead><tbody id="provinceRows"></tbody></table></div>
+  </section>
 </main>
 <footer>© <span id="year"></span> Apostolic Faith Assembly of Africa · Building Lives • Restoring Hope • Preaching Christ<br><a href="index.html">Return to the church website</a></footer>
 <script>
@@ -193,6 +197,21 @@ function render(){
   const p=safeCell(b.province), n=safeCell(b.name), c=document.createElement("td");
   const pill=document.createElement("span");pill.className="pill";pill.textContent=b.count;c.appendChild(pill);
   tr.append(p,n,c);branchRows.appendChild(tr);
+ });
+ const provinceNames=[...new Set(branches.map(b=>b.province))];
+ const provinceRows=$("provinceRows");provinceRows.replaceChildren();
+ provinceNames.forEach(province=>{
+  const provinceMembers=members.filter(m=>m.province===province);
+  const representedBranches=new Set(provinceMembers.map(m=>m.branch)).size;
+  const share=members.length?Math.round(provinceMembers.length/members.length*100):0;
+  const tr=document.createElement("tr");
+  tr.appendChild(safeCell(province));
+  const memberCell=document.createElement("td");
+  const memberPill=document.createElement("span");memberPill.className="pill";memberPill.textContent=provinceMembers.length;memberCell.appendChild(memberPill);
+  tr.appendChild(memberCell);
+  tr.appendChild(safeCell(representedBranches+" of "+branches.filter(b=>b.province===province).length));
+  tr.appendChild(safeCell(share+"%"));
+  provinceRows.appendChild(tr);
  });
 }
 $("memberForm").addEventListener("submit",e=>{
