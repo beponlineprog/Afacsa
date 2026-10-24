@@ -171,9 +171,9 @@ const adminSections=[...document.querySelectorAll(".admin-only")];
 const adminGate=$("adminGate");
 $("showAdminGate").addEventListener("click",()=>{adminGate.hidden=false;$("showAdminGate").setAttribute("aria-expanded","true");$("adminCode").focus();});
 $("hideAdminGate").addEventListener("click",()=>{adminGate.hidden=true;$("showAdminGate").setAttribute("aria-expanded","false");});
-function setAdminView(unlocked){adminSections.forEach(el=>el.hidden=!unlocked);adminGate.hidden=unlocked;$("showAdminGate").hidden=unlocked;if(!unlocked)$("showAdminGate").setAttribute("aria-expanded","false");}
+function setAdminView(unlocked){adminSections.forEach(el=>el.hidden=!unlocked);adminGate.hidden=unlocked;$("showAdminGate").hidden=unlocked;if(!unlocked)$("showAdminGate").setAttribute("aria-expanded","false");try{if(unlocked)sessionStorage.setItem("afaaAdminPreview","open");else sessionStorage.removeItem("afaaAdminPreview");}catch(error){/* Preview still works if browser storage is unavailable. */}}
 $("adminLoginForm").addEventListener("submit",e=>{e.preventDefault();if($("adminCode").value==="AFAA-DEMO-ADMIN"){setAdminView(true);$("adminLoginMessage").textContent="";$("adminCode").value="";}else{$("adminLoginMessage").textContent="That demo code is not correct. Try again.";}});
-$("adminLogout").addEventListener("click",()=>{setAdminView(false);$("adminCode").value="";$("adminLoginMessage").textContent="Admin preview locked.";window.scrollTo({top:0,behavior:"smooth"});});
+$("adminLogout").addEventListener("click",()=>{try{setAdminView(sessionStorage.getItem("afaaAdminPreview")==="open");}catch(error){setAdminView(false);}$("adminCode").value="";$("adminLoginMessage").textContent="Admin preview locked.";window.scrollTo({top:0,behavior:"smooth"});});
 setAdminView(false);
 $("province").addEventListener("change",()=>{
  const province=$("province").value;
