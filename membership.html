@@ -58,6 +58,8 @@ footer{background:#062e72;color:#dce8ff;text-align:center;padding:22px 16px;font
 footer a{color:var(--gold)}
 .small{font-size:12px;color:var(--muted);margin-top:12px}
 .admin-only[hidden],#adminGate[hidden]{display:none!important}
+.admin-top{display:flex;justify-content:flex-end;margin:0 0 12px}
+.admin-top button{min-width:96px}
 .admin-gate{max-width:620px;margin:0 auto 22px}
 .admin-gate .panel-body p{margin:0 0 12px;color:var(--muted);font-size:14px}
 .admin-status{font-size:13px;color:#9a3412;margin-top:10px}
@@ -82,8 +84,11 @@ footer a{color:var(--gold)}
 </section>
 <main class="wrap">
   <div class="demo-note"><strong>Demonstration mode:</strong> The names below are fictional sample records. Entries added on this page stay in this page's current session only; they are not sent to a database or shared with the church. Do not enter real members' personal information yet.</div>
-  <section class="panel admin-gate" id="adminGate">
-    <div class="panel-head"><div><h2>Administrator access</h2><p>Member details and branch statistics are kept out of the public view.</p></div></div>
+  <div class="admin-top">
+    <button type="button" id="showAdminGate" aria-expanded="false" aria-controls="adminGate">Admin</button>
+  </div>
+  <section class="panel admin-gate" id="adminGate" hidden>
+    <div class="panel-head"><div><h2>Administrator access</h2><p>Member details and branch statistics are kept out of the public view.</p></div><button type="button" class="secondary" id="hideAdminGate">Close</button></div>
     <div class="panel-body"><p>This is a sample-only preview gate, not secure authentication. Use the demo code below only to test the page.</p><form id="adminLoginForm"><div class="field"><label for="adminCode">Demo admin code</label><input id="adminCode" type="password" autocomplete="off" required placeholder="Enter demo code"></div><div class="actions"><button type="submit">Open admin register</button></div><p class="admin-status" id="adminLoginMessage" role="status" aria-live="polite"></p></form><p class="small">Demo code: <strong>AFAA-DEMO-ADMIN</strong>. This code is visible in the page source and must not be used to protect real member information.</p></div>
   </section>
   <div class="admin-bar admin-only" id="adminBar" hidden><span>Administrator preview unlocked — sample data only</span><button type="button" id="adminLogout" class="secondary">Lock admin view</button></div>
@@ -163,7 +168,10 @@ branches.forEach(b=>{
 });
 $("year").textContent=new Date().getFullYear();
 const adminSections=[...document.querySelectorAll(".admin-only")];
-function setAdminView(unlocked){adminSections.forEach(el=>el.hidden=!unlocked);$("adminGate").hidden=unlocked;}
+const adminGate=$("adminGate");
+$("showAdminGate").addEventListener("click",()=>{adminGate.hidden=false;$("showAdminGate").setAttribute("aria-expanded","true");$("adminCode").focus();});
+$("hideAdminGate").addEventListener("click",()=>{adminGate.hidden=true;$("showAdminGate").setAttribute("aria-expanded","false");});
+function setAdminView(unlocked){adminSections.forEach(el=>el.hidden=!unlocked);adminGate.hidden=unlocked;$("showAdminGate").hidden=unlocked;if(!unlocked)$("showAdminGate").setAttribute("aria-expanded","false");}
 $("adminLoginForm").addEventListener("submit",e=>{e.preventDefault();if($("adminCode").value==="AFAA-DEMO-ADMIN"){setAdminView(true);$("adminLoginMessage").textContent="";$("adminCode").value="";}else{$("adminLoginMessage").textContent="That demo code is not correct. Try again.";}});
 $("adminLogout").addEventListener("click",()=>{setAdminView(false);$("adminCode").value="";$("adminLoginMessage").textContent="Admin preview locked.";window.scrollTo({top:0,behavior:"smooth"});});
 setAdminView(false);
