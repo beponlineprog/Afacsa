@@ -56,7 +56,12 @@ tbody tr:hover{background:#f9fbff}
 .empty{padding:28px;text-align:center;color:var(--muted);display:none}
 footer{background:#062e72;color:#dce8ff;text-align:center;padding:22px 16px;font-size:13px}
 footer a{color:var(--gold)}
-.small{font-size:12px;color:var(--muted);margin-top:12px}\n.admin-only[hidden],#adminGate[hidden]{display:none!important}\n.admin-gate{max-width:620px;margin:0 auto 22px}\n.admin-gate .panel-body p{margin:0 0 12px;color:var(--muted);font-size:14px}\n.admin-status{font-size:13px;color:#9a3412;margin-top:10px}\n.admin-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;background:#eaf2ff;border:1px solid #cbdcf6;padding:12px 16px;border-radius:12px;margin-bottom:18px;color:#063d82;font-weight:700}
+.small{font-size:12px;color:var(--muted);margin-top:12px}
+.admin-only[hidden],#adminGate[hidden]{display:none!important}
+.admin-gate{max-width:620px;margin:0 auto 22px}
+.admin-gate .panel-body p{margin:0 0 12px;color:var(--muted);font-size:14px}
+.admin-status{font-size:13px;color:#9a3412;margin-top:10px}
+.admin-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;background:#eaf2ff;border:1px solid #cbdcf6;padding:12px 16px;border-radius:12px;margin-bottom:18px;color:#063d82;font-weight:700}
 @media(max-width:720px){header{align-items:flex-start;flex-direction:column}nav{gap:12px}.stats{grid-template-columns:1fr}.stat{padding:16px}.stat .number{font-size:28px}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.panel-body{padding:16px}.panel-head{padding:17px}.tools{flex-direction:column}.tools select{width:100%}}
 </style>
 </head>
@@ -77,7 +82,12 @@ footer a{color:var(--gold)}
 </section>
 <main class="wrap">
   <div class="demo-note"><strong>Demonstration mode:</strong> The names below are fictional sample records. Entries added on this page stay in this page's current session only; they are not sent to a database or shared with the church. Do not enter real members' personal information yet.</div>
-  <section class="panel admin-gate" id="adminGate">\n    <div class="panel-head"><div><h2>Administrator access</h2><p>Member details and branch statistics are kept out of the public view.</p></div></div>\n    <div class="panel-body"><p>This is a sample-only preview gate, not secure authentication. Use the demo code below only to test the page.</p><form id="adminLoginForm"><div class="field"><label for="adminCode">Demo admin code</label><input id="adminCode" type="password" autocomplete="off" required placeholder="Enter demo code"></div><div class="actions"><button type="submit">Open admin register</button></div><p class="admin-status" id="adminLoginMessage" role="status" aria-live="polite"></p></form><p class="small">Demo code: <strong>AFAA-DEMO-ADMIN</strong>. This code is visible in the page source and must not be used to protect real member information.</p></div>\n  </section>\n  <div class="admin-bar admin-only" id="adminBar" hidden><span>Administrator preview unlocked — sample data only</span><button type="button" id="adminLogout" class="secondary">Lock admin view</button></div>\n  <section class="stats admin-only" aria-label="Membership totals" hidden>
+  <section class="panel admin-gate" id="adminGate">
+    <div class="panel-head"><div><h2>Administrator access</h2><p>Member details and branch statistics are kept out of the public view.</p></div></div>
+    <div class="panel-body"><p>This is a sample-only preview gate, not secure authentication. Use the demo code below only to test the page.</p><form id="adminLoginForm"><div class="field"><label for="adminCode">Demo admin code</label><input id="adminCode" type="password" autocomplete="off" required placeholder="Enter demo code"></div><div class="actions"><button type="submit">Open admin register</button></div><p class="admin-status" id="adminLoginMessage" role="status" aria-live="polite"></p></form><p class="small">Demo code: <strong>AFAA-DEMO-ADMIN</strong>. This code is visible in the page source and must not be used to protect real member information.</p></div>
+  </section>
+  <div class="admin-bar admin-only" id="adminBar" hidden><span>Administrator preview unlocked — sample data only</span><button type="button" id="adminLogout" class="secondary">Lock admin view</button></div>
+  <section class="stats admin-only" aria-label="Membership totals" hidden>
     <div class="stat"><div class="label">Sample registered members</div><div class="number" id="totalCount">12</div></div>
     <div class="stat"><div class="label">Branches represented</div><div class="number" id="branchCount">11</div></div>
     <div class="stat"><div class="label">Branch with most sample entries</div><div class="number" id="topBranch" style="font-size:21px">Soweto (Dlamini)</div></div>
@@ -147,7 +157,12 @@ branches.forEach(b=>{
  const option=document.createElement("option");option.value=b.name;option.textContent=b.name+" — "+b.province;branchSelect.appendChild(option);
  const filterOption=document.createElement("option");filterOption.value=b.name;filterOption.textContent=b.name;branchFilter.appendChild(filterOption);
 });
-$("year").textContent=new Date().getFullYear();\nconst adminSections=[...document.querySelectorAll(".admin-only")];\nfunction setAdminView(unlocked){adminSections.forEach(el=>el.hidden=!unlocked);$("adminGate").hidden=unlocked;}\n$("adminLoginForm").addEventListener("submit",e=>{e.preventDefault();if($("adminCode").value==="AFAA-DEMO-ADMIN"){setAdminView(true);$("adminLoginMessage").textContent="";$("adminCode").value="";}else{$("adminLoginMessage").textContent="That demo code is not correct. Try again.";}});\n$("adminLogout").addEventListener("click",()=>{setAdminView(false);$("adminCode").value="";$("adminLoginMessage").textContent="Admin preview locked.";window.scrollTo({top:0,behavior:"smooth"});});\nsetAdminView(false);
+$("year").textContent=new Date().getFullYear();
+const adminSections=[...document.querySelectorAll(".admin-only")];
+function setAdminView(unlocked){adminSections.forEach(el=>el.hidden=!unlocked);$("adminGate").hidden=unlocked;}
+$("adminLoginForm").addEventListener("submit",e=>{e.preventDefault();if($("adminCode").value==="AFAA-DEMO-ADMIN"){setAdminView(true);$("adminLoginMessage").textContent="";$("adminCode").value="";}else{$("adminLoginMessage").textContent="That demo code is not correct. Try again.";}});
+$("adminLogout").addEventListener("click",()=>{setAdminView(false);$("adminCode").value="";$("adminLoginMessage").textContent="Admin preview locked.";window.scrollTo({top:0,behavior:"smooth"});});
+setAdminView(false);
 $("province").addEventListener("change",()=>{
  const province=$("province").value;
  [...branchSelect.options].forEach(o=>{if(o.value)o.hidden=!!province&&!branches.some(b=>b.name===o.value&&b.province===province)});
