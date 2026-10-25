@@ -80,10 +80,10 @@ footer a{color:var(--gold)}
 <section class="hero">
   <div class="eyebrow">Church Administration</div>
   <h1>Membership Register</h1>
-  <p>A simple demonstration of member registration and branch-by-branch membership counts.</p>
+  <p>Submit a membership registration for review by the church administration.</p>
 </section>
 <main class="wrap">
-  <div class="demo-note"><strong>Demonstration mode:</strong> The names below are fictional sample records. Entries added on this page stay in this page's current session only; they are not sent to a database or shared with the church. Do not enter real members' personal information yet.</div>
+  <div class="demo-note"><strong>Registration:</strong> The public form submits applications for administrator review. The member list and reports below are still demonstration data and do not display submitted registrations. Do not use this page for confidential information.</div>
   <div class="admin-top">
     <button type="button" id="showAdminGate" aria-expanded="false" aria-controls="adminGate">Admin</button>
   </div>
@@ -98,7 +98,7 @@ footer a{color:var(--gold)}
     <div class="stat"><div class="label">Branch with most sample entries</div><div class="number" id="topBranch" style="font-size:21px">Soweto (Dlamini)</div></div>
   </section>
   <section class="panel" id="register">
-    <div class="panel-head"><div><h2>Register a sample member</h2><p>Use fictional details to test how the form works.</p></div></div>
+    <div class="panel-head"><div><h2>Membership registration</h2><p>Complete the form and pass the security check to submit your details.</p></div></div>
     <div class="panel-body">
       <form id="memberForm">
         <div class="form-grid">
@@ -108,7 +108,8 @@ footer a{color:var(--gold)}
           <div class="field"><label for="province">Province *</label><select id="province" name="province" required><option value="">Select province</option><option>Gauteng</option><option>KwaZulu-Natal</option><option>Free State</option><option>North West</option><option>Limpopo</option></select></div>
           <div class="field full"><label for="branch">Church branch *</label><select id="branch" name="branch" required><option value="">Select branch</option></select></div>
         </div>
-        <div class="actions"><button type="submit">Add sample record</button><button class="secondary" type="reset">Clear form</button></div>
+        <div class="field full"><label>Security check *</label><div class="cf-turnstile" data-sitekey="0x4AAAAAAFku57WjVi92ml-M"></div></div>
+        <div class="actions"><button type="submit">Submit registration</button><button class="secondary" type="reset">Clear form</button></div>
         <p class="small">No membership number is generated. Branch totals update automatically when you add a sample record.</p>
         <p id="formMessage" role="status" aria-live="polite" class="small"></p>
       </form>
@@ -130,6 +131,7 @@ footer a{color:var(--gold)}
   </section>
 </main>
 <footer>© <span id="year"></span> Apostolic Faith Assembly of Africa · Building Lives • Restoring Hope • Preaching Christ<br><a href="index.html">Return to the church website</a></footer>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script>
 const branches = [
   {name:"Soweto (Dlamini)",province:"Gauteng"},
@@ -222,15 +224,32 @@ function render(){
   provinceRows.appendChild(tr);
  });
 }
-$("memberForm").addEventListener("submit",e=>{
+$("memberForm").addEventListener("submit",async e=>{
  e.preventDefault();
  const name=$("fullName").value.trim(),phone=$("phone").value.trim(),email=$("email").value.trim(),province=$("province").value,branch=$("branch").value;
+ const captcha=document.querySelector('[name="cf-turnstile-response"]')?.value||"";
+ const button=$('memberForm').querySelector('button[type="submit"]');
  if(!name||!phone||!province||!branch){$("formMessage").textContent="Please complete all required fields.";return}
  if(!branches.some(b=>b.name===branch&&b.province===province)){$("formMessage").textContent="Please select a branch that matches the province.";return}
- members.unshift({name,phone,email,province,branch,date:new Date().toISOString().slice(0,10)});
- $("memberForm").reset();[...branchSelect.options].forEach(o=>o.hidden=false);
- $("formMessage").textContent="Sample record added to this page session only. It has not been saved to a database.";
- render();
+ if(!captcha){$("formMessage").textContent="Please complete the security check.";return}
+ button.disabled=true;
+ $("formMessage").textContent="Submitting registration…";
+ try{
+  const response=await fetch("https://afaa-membership-api.bep-onlineprog.workers.dev/register",{
+   method:"POST",
+   headers:{"Content-Type":"application/json"},
+   body:JSON.stringify({fullName:name,phone,email,province,branch,turnstileToken:captcha})
+  });
+  const result=await response.json();
+  if(!response.ok||!result.success)throw new Error(result.error||"Registration could not be submitted.");
+  $("memberForm").reset();
+  [...branchSelect.options].forEach(o=>o.hidden=false);
+  if(window.turnstile)window.turnstile.reset();
+  $("formMessage").textContent="Registration received for church administrator review.";
+ }catch(error){
+  $("formMessage").textContent=error.message||"Unable to submit. Please try again later.";
+  if(window.turnstile)window.turnstile.reset();
+ }finally{button.disabled=false}
 });
 $("searchInput").addEventListener("input",render);
 branchFilter.addEventListener("change",render);
