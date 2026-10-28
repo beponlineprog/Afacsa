@@ -108,6 +108,13 @@ const branches = [
 ];
 const $ = id => document.getElementById(id);
 const branchSelect = $("branch");
+// Populate the branch dropdown from the approved branch list.
+branches.forEach(b=>{
+ const option=document.createElement("option");
+ option.value=b.name;
+ option.textContent=b.name;
+ branchSelect.appendChild(option);
+});
 $("province").addEventListener("change",()=>{
  const province=$("province").value;
  [...branchSelect.options].forEach(o=>{if(o.value)o.hidden=!!province&&!branches.some(b=>b.name===o.value&&b.province===province)});
