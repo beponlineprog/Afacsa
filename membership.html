@@ -23,11 +23,6 @@ nav a:hover,nav a:focus{color:var(--gold);text-decoration:underline}
 .hero h1{font-size:clamp(27px,4vw,42px);margin:8px 0}
 .hero p{max-width:720px;margin:0 auto;color:#eaf2ff}
 .wrap{width:min(1180px,calc(100% - 32px));margin:28px auto 54px}
-.demo-note{border:1px solid #e8ce6c;background:#fff9dd;border-radius:12px;padding:13px 16px;color:#614d05;font-size:14px;margin-bottom:20px}
-.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:22px}
-.stat{background:white;border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:15px;padding:20px;box-shadow:0 5px 16px #092b590a}
-.stat .label{font-size:13px;color:var(--muted);font-weight:700}
-.stat .number{font-size:32px;font-weight:800;color:var(--blue);margin-top:5px}
 .panel{background:white;border:1px solid var(--line);border-radius:16px;box-shadow:0 7px 24px #092b590b;overflow:hidden;margin-bottom:22px}
 .panel-head{padding:20px 22px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .panel-head h2{font-size:20px;color:var(--deep);margin:0}
@@ -57,14 +52,7 @@ tbody tr:hover{background:#f9fbff}
 footer{background:#062e72;color:#dce8ff;text-align:center;padding:22px 16px;font-size:13px}
 footer a{color:var(--gold)}
 .small{font-size:12px;color:var(--muted);margin-top:12px}
-.admin-only[hidden],#adminGate[hidden]{display:none!important}
-.admin-top{display:flex;justify-content:flex-end;margin:0 0 12px}
-.admin-top button{min-width:96px}
-.admin-gate{max-width:620px;margin:0 auto 22px}
-.admin-gate .panel-body p{margin:0 0 12px;color:var(--muted);font-size:14px}
-.admin-status{font-size:13px;color:#9a3412;margin-top:10px}
-.admin-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;background:#eaf2ff;border:1px solid #cbdcf6;padding:12px 16px;border-radius:12px;margin-bottom:18px;color:#063d82;font-weight:700}
-@media(max-width:720px){header{align-items:flex-start;flex-direction:column}nav{gap:12px}.stats{grid-template-columns:1fr}.stat{padding:16px}.stat .number{font-size:28px}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.panel-body{padding:16px}.panel-head{padding:17px}.tools{flex-direction:column}.tools select{width:100%}}
+@media(max-width:720px){header{align-items:flex-start;flex-direction:column}nav{gap:12px}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.panel-body{padding:16px}.panel-head{padding:17px}.tools{flex-direction:column}.tools select{width:100%}}
 </style>
 </head>
 <body>
@@ -83,20 +71,6 @@ footer a{color:var(--gold)}
   <p>Submit a membership registration for review by the church administration.</p>
 </section>
 <main class="wrap">
-  <div class="demo-note"><strong>Registration:</strong> The public form submits applications for administrator review. The member list and reports below are still demonstration data and do not display submitted registrations. Do not use this page for confidential information.</div>
-  <div class="admin-top">
-    <button type="button" id="showAdminGate" aria-expanded="false" aria-controls="adminGate">Admin</button>
-  </div>
-  <section class="panel admin-gate" id="adminGate" hidden>
-    <div class="panel-head"><div><h2>Administrator access</h2><p>Member details and branch statistics are kept out of the public view.</p></div><button type="button" class="secondary" id="hideAdminGate">Close</button></div>
-    <div class="panel-body"><p>This is a sample-only preview gate, not secure authentication. Use the demo code below only to test the page.</p><form id="adminLoginForm"><div class="field"><label for="adminCode">Demo admin code</label><input id="adminCode" type="password" autocomplete="off" required placeholder="Enter demo code"></div><div class="actions"><button type="submit">Open admin register</button></div><p class="admin-status" id="adminLoginMessage" role="status" aria-live="polite"></p></form><p class="small">Demo code: <strong>AFAA-DEMO-ADMIN</strong>. This code is visible in the page source and must not be used to protect real member information.</p></div>
-  </section>
-  <div class="admin-bar admin-only" id="adminBar" hidden><span>Administrator preview unlocked — sample data only</span><button type="button" id="adminLogout" class="secondary">Lock admin view</button></div>
-  <section class="stats admin-only" aria-label="Membership totals" hidden>
-    <div class="stat"><div class="label">Sample registered members</div><div class="number" id="totalCount">12</div></div>
-    <div class="stat"><div class="label">Branches represented</div><div class="number" id="branchCount">11</div></div>
-    <div class="stat"><div class="label">Branch with most sample entries</div><div class="number" id="topBranch" style="font-size:21px">Soweto (Dlamini)</div></div>
-  </section>
   <section class="panel" id="register">
     <div class="panel-head"><div><h2>Membership registration</h2><p>Complete the form and pass the security check to submit your details.</p></div></div>
     <div class="panel-body">
@@ -115,20 +89,6 @@ footer a{color:var(--gold)}
       </form>
     </div>
   </section>
-  <section class="panel admin-only" id="members" hidden>
-    <div class="panel-head"><div><h2>Members list</h2><p>Search sample records or filter by branch.</p></div>
-      <div class="tools"><input id="searchInput" type="search" placeholder="Search name, phone or email" aria-label="Search members"><select id="branchFilter" aria-label="Filter by branch"><option value="">All branches</option></select></div>
-    </div>
-    <div class="table-wrap"><table><thead><tr><th>Full name</th><th>Phone</th><th>Email</th><th>Province</th><th>Branch</th><th>Date registered</th></tr></thead><tbody id="memberRows"></tbody></table><div class="empty" id="emptyState">No sample records match your search.</div></div>
-  </section>
-  <section class="panel admin-only" id="branchSummary" hidden>
-    <div class="panel-head"><div><h2>Members by branch</h2><p>Counts are calculated from the records currently displayed in the demonstration register.</p></div></div>
-    <div class="table-wrap"><table style="min-width:400px"><thead><tr><th>Province</th><th>Branch</th><th>Members</th></tr></thead><tbody id="branchRows"></tbody></table></div>
-  </section>
-  <section class="panel admin-only" id="provinceSummary" hidden>
-    <div class="panel-head"><div><h2>Members by province</h2><p>Compare sample registrations across provinces. Provinces with no registrations are included.</p></div></div>
-    <div class="table-wrap"><table style="min-width:520px"><thead><tr><th>Province</th><th>Members</th><th>Branches represented</th><th>Share of members</th></tr></thead><tbody id="provinceRows"></tbody></table></div>
-  </section>
 </main>
 <footer>© <span id="year"></span> Apostolic Faith Assembly of Africa · Building Lives • Restoring Hope • Preaching Christ<br><a href="index.html">Return to the church website</a></footer>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
@@ -146,37 +106,8 @@ const branches = [
   {name:"Julesburg",province:"Limpopo"},
   {name:"Polokwane",province:"Limpopo"}
 ];
-// Fictional demonstration records only. Replace with real data only after a secure database is connected.
-let members = [
- {name:"Sample Member 01",phone:"071 000 0001",email:"",province:"Gauteng",branch:"Soweto (Dlamini)",date:"2026-10-01"},
- {name:"Sample Member 02",phone:"071 000 0002",email:"sample02@example.com",province:"Gauteng",branch:"Soweto (Dlamini)",date:"2026-10-02"},
- {name:"Sample Member 03",phone:"071 000 0003",email:"",province:"Gauteng",branch:"Daveyton",date:"2026-10-03"},
- {name:"Sample Member 04",phone:"071 000 0004",email:"sample04@example.com",province:"Gauteng",branch:"Pretoria",date:"2026-10-04"},
- {name:"Sample Member 05",phone:"071 000 0005",email:"",province:"KwaZulu-Natal",branch:"Newcastle",date:"2026-10-05"},
- {name:"Sample Member 06",phone:"071 000 0006",email:"",province:"Free State",branch:"QwaQwa",date:"2026-10-06"},
- {name:"Sample Member 07",phone:"071 000 0007",email:"sample07@example.com",province:"North West",branch:"Rustenburg",date:"2026-10-07"},
- {name:"Sample Member 08",phone:"071 000 0008",email:"",province:"Limpopo",branch:"Polokwane",date:"2026-10-08"},
- {name:"Sample Member 09",phone:"071 000 0009",email:"",province:"Gauteng",branch:"Germiston",date:"2026-10-09"},
- {name:"Sample Member 10",phone:"071 000 0010",email:"sample10@example.com",province:"Gauteng",branch:"Thembisa",date:"2026-10-10"},
- {name:"Sample Member 11",phone:"071 000 0011",email:"",province:"KwaZulu-Natal",branch:"Mhlabuyalingana",date:"2026-10-11"},
- {name:"Sample Member 12",phone:"071 000 0012",email:"",province:"Limpopo",branch:"Julesburg",date:"2026-10-12"}
-];
 const $ = id => document.getElementById(id);
 const branchSelect = $("branch");
-const branchFilter = $("branchFilter");
-branches.forEach(b=>{
- const option=document.createElement("option");option.value=b.name;option.textContent=b.name+" — "+b.province;branchSelect.appendChild(option);
- const filterOption=document.createElement("option");filterOption.value=b.name;filterOption.textContent=b.name;branchFilter.appendChild(filterOption);
-});
-$("year").textContent=new Date().getFullYear();
-const adminSections=[...document.querySelectorAll(".admin-only")];
-const adminGate=$("adminGate");
-$("showAdminGate").addEventListener("click",()=>{adminGate.hidden=false;$("showAdminGate").setAttribute("aria-expanded","true");$("adminCode").focus();});
-$("hideAdminGate").addEventListener("click",()=>{adminGate.hidden=true;$("showAdminGate").setAttribute("aria-expanded","false");});
-function setAdminView(unlocked){adminSections.forEach(el=>el.hidden=!unlocked);adminGate.hidden=unlocked;$("showAdminGate").hidden=unlocked;if(!unlocked)$("showAdminGate").setAttribute("aria-expanded","false");try{if(unlocked)sessionStorage.setItem("afaaAdminPreview","open");else sessionStorage.removeItem("afaaAdminPreview");}catch(error){/* Preview still works if browser storage is unavailable. */}}
-$("adminLoginForm").addEventListener("submit",e=>{e.preventDefault();if($("adminCode").value==="AFAA-DEMO-ADMIN"){setAdminView(true);$("adminLoginMessage").textContent="";$("adminCode").value="";}else{$("adminLoginMessage").textContent="That demo code is not correct. Try again.";}});
-$("adminLogout").addEventListener("click",()=>{setAdminView(false);$("adminCode").value="";$("adminLoginMessage").textContent="Admin preview locked.";window.scrollTo({top:0,behavior:"smooth"});});
-try{setAdminView(sessionStorage.getItem("afaaAdminPreview")==="open");}catch(error){setAdminView(false);}
 $("province").addEventListener("change",()=>{
  const province=$("province").value;
  [...branchSelect.options].forEach(o=>{if(o.value)o.hidden=!!province&&!branches.some(b=>b.name===o.value&&b.province===province)});
@@ -185,45 +116,6 @@ $("province").addEventListener("change",()=>{
 branchSelect.addEventListener("change",()=>{
  const b=branches.find(x=>x.name===branchSelect.value);if(b)$("province").value=b.province;
 });
-function safeCell(value){const td=document.createElement("td");td.textContent=value||"—";return td}
-function render(){
- const query=$("searchInput").value.trim().toLowerCase(), filter=branchFilter.value;
- const visible=members.filter(m=>(!filter||m.branch===filter)&&[m.name,m.phone,m.email,m.province,m.branch].join(" ").toLowerCase().includes(query));
- const rows=$("memberRows");rows.replaceChildren();
- visible.forEach(m=>{
-  const tr=document.createElement("tr");
-  [m.name,m.phone,m.email,m.province,m.branch,m.date].forEach(v=>tr.appendChild(safeCell(v)));
-  rows.appendChild(tr);
- });
- $("emptyState").style.display=visible.length?"none":"block";
- const counts=branches.map(b=>({...b,count:members.filter(m=>m.branch===b.name).length}));
- $("totalCount").textContent=members.length;
- $("branchCount").textContent=counts.filter(b=>b.count>0).length;
- const top=[...counts].sort((a,b)=>b.count-a.count)[0];
- $("topBranch").textContent=top&&top.count?top.name:"—";
- const branchRows=$("branchRows");branchRows.replaceChildren();
- counts.forEach(b=>{
-  const tr=document.createElement("tr");
-  const p=safeCell(b.province), n=safeCell(b.name), c=document.createElement("td");
-  const pill=document.createElement("span");pill.className="pill";pill.textContent=b.count;c.appendChild(pill);
-  tr.append(p,n,c);branchRows.appendChild(tr);
- });
- const provinceNames=[...new Set(branches.map(b=>b.province))];
- const provinceRows=$("provinceRows");provinceRows.replaceChildren();
- provinceNames.forEach(province=>{
-  const provinceMembers=members.filter(m=>m.province===province);
-  const representedBranches=new Set(provinceMembers.map(m=>m.branch)).size;
-  const share=members.length?Math.round(provinceMembers.length/members.length*100):0;
-  const tr=document.createElement("tr");
-  tr.appendChild(safeCell(province));
-  const memberCell=document.createElement("td");
-  const memberPill=document.createElement("span");memberPill.className="pill";memberPill.textContent=provinceMembers.length;memberCell.appendChild(memberPill);
-  tr.appendChild(memberCell);
-  tr.appendChild(safeCell(representedBranches+" of "+branches.filter(b=>b.province===province).length));
-  tr.appendChild(safeCell(share+"%"));
-  provinceRows.appendChild(tr);
- });
-}
 $("memberForm").addEventListener("submit",async e=>{
  e.preventDefault();
  const name=$("fullName").value.trim(),phone=$("phone").value.trim(),email=$("email").value.trim(),province=$("province").value,branch=$("branch").value;
@@ -251,9 +143,7 @@ $("memberForm").addEventListener("submit",async e=>{
   if(window.turnstile)window.turnstile.reset();
  }finally{button.disabled=false}
 });
-$("searchInput").addEventListener("input",render);
-branchFilter.addEventListener("change",render);
-render();
+
 </script>
 </body>
 </html>
