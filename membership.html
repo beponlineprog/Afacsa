@@ -139,8 +139,15 @@ $("memberForm").addEventListener("submit",async e=>{
    headers:{"Content-Type":"application/json"},
    body:JSON.stringify({fullName:name,phone,email,province,branch,turnstileToken:captcha})
   });
-  const result=await response.json();
-  if(!response.ok||!result.success)throw new Error(result.error||"Registration could not be submitted.");
+  const responseText=await response.text();
+  let result={};
+  try{result=responseText?JSON.parse(responseText):{};}catch(parseError){result={error:responseText};}
+  if(!response.ok||!result.success){
+   const detail=typeof result.error==="string"&&result.error.trim()?result.error.trim():
+    typeof result.message==="string"&&result.message.trim()?result.message.trim():
+    responseText.trim()||"The registration service returned no error details.";
+   throw new Error("Registration failed (HTTP "+response.status+"): "+detail);
+  }
   $("memberForm").reset();
   [...branchSelect.options].forEach(o=>o.hidden=false);
   if(window.turnstile)window.turnstile.reset();
