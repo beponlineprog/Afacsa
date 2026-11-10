@@ -79,7 +79,7 @@ footer a{color:var(--gold)}
           <div class="field"><label for="fullName">Full name and surname *</label><input id="fullName" name="fullName" autocomplete="off" required maxlength="100" placeholder="e.g. Sample Member"></div>
           <div class="field"><label for="phone">Phone number *</label><input id="phone" name="phone" autocomplete="off" required inputmode="tel" maxlength="30" placeholder="e.g. 071 000 0000"></div>
           <div class="field"><label for="email">Email address (optional)</label><input id="email" name="email" autocomplete="off" type="email" maxlength="120" placeholder="name@example.com"></div>
-          <div class="field"><label for="province">Province *</label><select id="province" name="province" required><option value="">Select province</option><option>Gauteng</option><option>KwaZulu-Natal</option><option>Free State</option><option>North West</option><option>Limpopo</option></select></div>
+          <div class="field"><label for="province">Province *</label><select id="province" name="province" required><option value="">Select province</option><option>Gauteng</option><option>KwaZulu-Natal</option><option>Free State</option><option>North West</option><option>Limpopo</option><option>Mpumalanga</option></select></div>
           <div class="field full"><label for="branch">Church branch *</label><select id="branch" name="branch" required><option value="">Select branch</option></select></div>
         </div>
         <div class="field full"><label>Security check *</label><div class="cf-turnstile" data-sitekey="0x4AAAAAAFku57WjVi92ml-M"></div></div>
@@ -99,12 +99,22 @@ const branches = [
   {name:"Daveyton",province:"Gauteng"},
   {name:"Thembisa",province:"Gauteng"},
   {name:"Pretoria",province:"Gauteng"},
+  {name:"Sebokeng",province:"Gauteng"},
+  {name:"Joburg Central",province:"Gauteng"},
+  {name:"Momel",province:"Gauteng"},
   {name:"Newcastle",province:"KwaZulu-Natal"},
   {name:"Mhlabuyalingana",province:"KwaZulu-Natal"},
+  {name:"Mhalabuyslingana",province:"KwaZulu-Natal"},
   {name:"QwaQwa",province:"Free State"},
   {name:"Rustenburg",province:"North West"},
   {name:"Julesburg",province:"Limpopo"},
-  {name:"Polokwane",province:"Limpopo"}
+  {name:"Polokwane",province:"Limpopo"},
+  {name:"Morapalala",province:"Limpopo"},
+  {name:"Molalana",province:"Limpopo"},
+  {name:"Sekhunyana",province:"Limpopo"},
+  {name:"Nwamita",province:"Limpopo"},
+  {name:"Lesley",province:"Mpumalanga"},
+  {name:"Burgersfort",province:"Mpumalanga"}
 ];
 const $ = id => document.getElementById(id);
 const branchSelect = $("branch");
