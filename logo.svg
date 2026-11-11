@@ -1,11 +1,38 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" role="img" aria-labelledby="title desc">
-<title id="title">Apostolic Faith Assembly of Africa</title><desc id="desc">Navy and gold heart emblem with the slogan With God Everything Is Possible.</desc>
-<defs><linearGradient id="navy" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#123d8b"/><stop offset="1" stop-color="#001747"/></linearGradient><linearGradient id="gold"><stop stop-color="#b78319"/><stop offset=".5" stop-color="#ffe38a"/><stop offset="1" stop-color="#c18a1b"/></linearGradient></defs>
+<title id="title">Apostolic Faith Assembly of Africa — Established 1918</title>
+<desc id="desc">Navy and gold heart crest featuring Africa, an open Bible, Established 1918, and the slogan With God Everything Is Possible.</desc>
+<defs>
+ <radialGradient id="blue"><stop stop-color="#1679ff"/><stop offset=".48" stop-color="#0644c4"/><stop offset="1" stop-color="#00134f"/></radialGradient>
+ <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff2a0"/><stop offset=".25" stop-color="#ffbd19"/><stop offset=".55" stop-color="#fff0a0"/><stop offset=".8" stop-color="#d58a00"/><stop offset="1" stop-color="#fff0a0"/></linearGradient>
+ <linearGradient id="ribbon" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fff3a5"/><stop offset=".45" stop-color="#f9bd25"/><stop offset="1" stop-color="#d88a00"/></linearGradient>
+ <radialGradient id="glow"><stop stop-color="#fff9cf" stop-opacity=".95"/><stop offset="1" stop-color="#fff9cf" stop-opacity="0"/></radialGradient>
+ <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="7"/></filter>
+</defs>
 <rect width="900" height="900" fill="#fff"/>
-<path d="M450 390 C385 330 170 205 210 105 C250 5 390 45 450 125 C510 45 650 5 690 105 C730 205 515 330 450 390Z" fill="#071d57" stroke="#071d57" stroke-width="12" transform="translate(0 0) scale(1 1)"/>
-<path d="M450 370 C385 310 190 200 225 112 C258 32 390 62 450 140 C510 62 642 32 675 112 C710 200 515 310 450 370Z" fill="url(#navy)" stroke="url(#gold)" stroke-width="10"/>
-<g fill="#fff" text-anchor="middle" font-family="Georgia,serif" font-weight="bold" font-size="26"><text x="450" y="170">APOSTOLIC</text><text x="450" y="205">FAITH</text><text x="450" y="240">ASSEMBLY</text><text x="450" y="275">OF</text><text x="450" y="310">AFRICA</text></g>
-<g fill="#08265b" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold"><text x="450" y="490" font-size="78">APOSTOLIC</text><text x="450" y="575" font-size="78">FAITH ASSEMBLY</text></g>
-<path d="M95 625 H290 M610 625 H805" stroke="url(#gold)" stroke-width="5"/><text x="450" y="650" text-anchor="middle" fill="#08265b" font-family="Georgia,serif" font-size="43" letter-spacing="7">OF AFRICA</text>
-<text x="450" y="720" text-anchor="middle" fill="#08265b" font-family="Georgia,serif" font-size="30" font-style="italic">With God Everything Is Possible</text>
+<path d="M450 790 C375 725 40 485 38 260 C35 65 235 0 360 45 C407 62 440 93 450 112 C460 93 493 62 540 45 C665 0 865 65 862 260 C860 485 525 725 450 790Z" fill="#00103c" opacity=".25" filter="url(#shadow)"/>
+<path d="M450 805 C370 735 30 495 28 260 C25 65 230 -4 360 42 C407 58 440 92 450 111 C460 92 493 58 540 42 C670 -4 875 65 872 260 C870 495 530 735 450 805Z" fill="url(#gold)" stroke="#b97800" stroke-width="5"/>
+<path d="M450 780 C375 715 55 480 54 260 C52 83 235 22 354 62 C410 80 440 119 450 136 C460 119 490 80 546 62 C665 22 848 83 846 260 C845 480 525 715 450 780Z" fill="url(#blue)" stroke="#061b69" stroke-width="10"/>
+<path d="M450 780 C375 715 55 480 54 260 C52 83 235 22 354 62 C410 80 440 119 450 136 C460 119 490 80 546 62 C665 22 848 83 846 260 C845 480 525 715 450 780Z" fill="none" stroke="#fff0a0" stroke-width="4"/>
+<circle cx="450" cy="235" r="220" fill="url(#glow)"/>
+<g stroke="#fff" stroke-opacity=".18" stroke-width="5">
+ <path d="M450 240L120 130 M450 240L170 80 M450 240L270 55 M450 240L630 55 M450 240L730 80 M450 240L780 130 M450 240L90 250 M450 240L810 250"/>
+</g>
+<path d="M450 112 L470 129 496 125 513 145 538 146 548 173 573 188 566 215 589 229 576 254 581 282 560 299 558 329 531 344 519 377 488 386 470 415 442 410 426 387 402 383 390 355 365 342 372 314 354 292 370 267 360 243 385 225 389 197 414 185 420 156 446 153Z" fill="#08266d" stroke="url(#gold)" stroke-width="8" stroke-linejoin="round"/>
+<text x="450" y="452" fill="#fff" font-family="Georgia,serif" font-size="51" font-weight="bold" text-anchor="middle" stroke="#061747" stroke-width="2" paint-order="stroke">APOSTOLIC FAITH ASSEMBLY</text>
+<text x="450" y="515" fill="#fff" font-family="Georgia,serif" font-size="68" font-weight="bold" text-anchor="middle" stroke="#061747" stroke-width="3" paint-order="stroke">OF AFRICA</text>
+<path d="M85 493H270 M630 493H815" stroke="url(#gold)" stroke-width="8"/>
+<g transform="translate(0 8)">
+ <path d="M208 642 Q320 565 450 623 Q580 565 692 642 L730 704 Q580 674 450 720 Q320 674 170 704Z" fill="#5b3300" stroke="#ffcb32" stroke-width="8"/>
+ <path d="M218 636 Q330 570 450 624 Q570 570 682 636 L710 689 Q575 660 450 706 Q325 660 190 689Z" fill="#fffdf2" stroke="#d99a16" stroke-width="6"/>
+ <path d="M450 625V705" stroke="#b77a0b" stroke-width="7"/>
+ <g stroke="#c6a56a" stroke-width="2" opacity=".8"><path d="M235 638l180 -10 M225 650l185 -10 M215 663l190 -9 M205 676l195 -8 M485 628l180 10 M490 640l185 10 M495 653l190 10 M500 666l190 10"/></g>
+ <path d="M190 704Q320 680 450 720Q580 680 710 704" fill="none" stroke="#ffda56" stroke-width="7"/>
+</g>
+<text x="450" y="775" fill="#fff" font-family="Georgia,serif" font-size="44" font-style="italic" font-weight="bold" text-anchor="middle">Established 1918</text>
+<path d="M315 800H420 M480 800H585" stroke="url(#gold)" stroke-width="5"/>
+<path d="M450 785l18 15-18 15-18-15Z" fill="url(#gold)" stroke="#a76c00" stroke-width="2"/>
+<path d="M130 845 Q90 822 55 850 L12 880 L42 930 L125 908 Q250 975 450 940 Q650 975 775 908 L858 930 L888 880 L845 850 Q810 822 770 845 Q620 905 450 900 Q280 905 130 845Z" fill="url(#ribbon)" stroke="#d28a00" stroke-width="7"/>
+<path d="M125 850Q285 910 450 895Q615 910 775 850" fill="none" stroke="#fff1a0" stroke-width="5"/>
+<path d="M125 850L110 900 42 930 75 875Z M775 850L790 900 858 930 825 875Z" fill="#09266d" stroke="url(#gold)" stroke-width="5"/>
+<text x="450" y="890" fill="#06215d" font-family="Georgia,serif" font-size="46" font-style="italic" font-weight="bold" text-anchor="middle">With God Everything Is Possible.</text>
 </svg>
