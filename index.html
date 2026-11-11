@@ -23,28 +23,41 @@ header{
 position:sticky;
 top:0;
 width:100%;
-background:#004aad;
+background:#061b55;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:15px 8%;
+gap:24px;
+padding:10px 6%;
+min-height:118px;
 z-index:1000;
-box-shadow:0 3px 8px rgba(0,0,0,.2);
+box-shadow:0 3px 12px rgba(0,0,0,.22);
 }
 
 .logo{
 display:flex;
 align-items:center;
+gap:16px;
+min-width:0;
 }
 
 .logo img{
-width:60px;
-margin-right:12px;
+display:block;
+width:104px;
+height:104px;
+object-fit:contain;
+object-position:center;
+flex:0 0 104px;
+margin:0;
+background:#fff;
+border-radius:14px;
 }
 
 .logo h2{
-color:white;
-font-size:20px;
+color:#fff;
+font-size:clamp(16px,2vw,22px);
+line-height:1.25;
+max-width:280px;
 }
 
 nav a{
@@ -301,11 +314,22 @@ transform:translateY(-8px);
 }
 
 @media(max-width:768px){
-
 header{
 flex-direction:column;
+gap:10px;
+padding:12px 4%;
 }
-
+.logo{
+justify-content:center;
+}
+.logo img{
+width:88px;
+height:88px;
+flex-basis:88px;
+}
+.logo h2{
+font-size:18px;
+}
 nav{
 margin-top:15px;
 }
@@ -348,7 +372,7 @@ font-size:36px;
 <header>
 
 <div class="logo">
-<img src="logo.svg">
+<img src="logo.svg?v=3">
 <h2>Apostolic Faith Assembly of Africa</h2>
 </div>
 
